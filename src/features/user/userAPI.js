@@ -10,15 +10,17 @@ export async function fetchLoggedInUser() {
   const response = await fetch(
     `${process.env.REACT_APP_BACKEND_URL}/users/own`,
     {
-      credentials: "include",
+      credentials: "include", // Make sure cookies are included
     }
   );
 
+  // Check if the response is not okay (e.g. 401 Unauthorized)
   if (!response.ok) {
-    // Handle error better here
-    throw new Error("Unauthorized. Please log in again.");
+    const errorMessage = await response.text(); // Get plain text (error message)
+    throw new Error(errorMessage || "Unauthorized. Please log in again.");
   }
 
+  // Parse JSON only if the response is OK (200 status)
   const data = await response.json();
   return { data };
 }

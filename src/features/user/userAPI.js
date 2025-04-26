@@ -9,7 +9,10 @@ export function fetchLoggedInUserOrders() {
 export function fetchLoggedInUser() {
   return new Promise(async (resolve) => {
     const response = await fetch(
-      `${process.env.REACT_APP_BACKEND_URL}/users/own`
+      `${process.env.REACT_APP_BACKEND_URL}/users/own`,
+      {
+        credentials: "include",
+      }
     );
     const data = await response.json();
     resolve({ data });

@@ -4,6 +4,7 @@ export function addToCart(item) {
       method: "POST",
       body: JSON.stringify(item),
       headers: { "content-type": "application/json" },
+      credentials: "include",
     });
     const data = await response.json();
     resolve({ data });
@@ -12,7 +13,9 @@ export function addToCart(item) {
 
 export function fetchItemsByUserId() {
   return new Promise(async (resolve) => {
-    const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/cart`);
+    const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/cart`, {
+      credentials: "include",
+    });
     const data = await response.json();
     resolve({ data });
   });
@@ -26,6 +29,7 @@ export function updateCart(update) {
         method: "PATCH",
         body: JSON.stringify(update),
         headers: { "content-type": "application/json" },
+        credentials: "include",
       }
     );
     const data = await response.json();

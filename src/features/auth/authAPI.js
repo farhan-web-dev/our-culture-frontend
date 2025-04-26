@@ -19,6 +19,7 @@ export function loginUser(loginInfo) {
           method: "POST",
           body: JSON.stringify(loginInfo),
           headers: { "content-type": "application/json" },
+          credentials: "include",
         }
       );
       if (response.ok) {
@@ -38,7 +39,11 @@ export function checkAuth() {
   return new Promise(async (resolve, reject) => {
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/auth/check`
+        `${process.env.REACT_APP_BACKEND_URL}/auth/check`,
+        {
+          method: "GET",
+          credentials: "include", // 👈 important to send cookies
+        }
       );
       if (response.ok) {
         const data = await response.json();

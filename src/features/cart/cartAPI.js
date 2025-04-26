@@ -11,14 +11,18 @@ export function addToCart(item) {
   });
 }
 
-export function fetchItemsByUserId() {
-  return new Promise(async (resolve) => {
-    const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/cart`, {
-      credentials: "include",
-    });
-    const data = await response.json();
-    resolve({ data });
+export async function fetchItemsByUserId() {
+  const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/cart`, {
+    credentials: "include",
   });
+
+  if (!response.ok) {
+    // Handle error better here
+    throw new Error("Unauthorized. Please log in again.");
+  }
+
+  const data = await response.json();
+  return { data };
 }
 
 export function updateCart(update) {

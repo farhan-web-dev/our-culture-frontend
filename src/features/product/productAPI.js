@@ -40,7 +40,7 @@ export function updateProduct(update) {
   // Remove the ID from the update body to avoid duplicates
   const { id, ...updateData } = update;
 
-  return fetch(`/products/${id}`, {
+  return fetch(`${process.env.REACT_APP_BACKEND_URL}/products/${id}`, {
     method: "PATCH", // or 'PUT' if your API prefers that
     body: JSON.stringify(updateData),
     headers: { "content-type": "application/json" },
@@ -81,7 +81,9 @@ export function fetchProductsByFilters(filter, sort, pagination, admin) {
   }
 
   return new Promise(async (resolve) => {
-    const response = await fetch("/products?" + queryString);
+    const response = await fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/products?` + queryString
+    );
     const data = await response.json();
     const totalItems = await response.headers.get("X-Total-Count");
     resolve({ data: { products: data, totalItems: +totalItems } });
@@ -90,7 +92,9 @@ export function fetchProductsByFilters(filter, sort, pagination, admin) {
 
 export function fetchCategories() {
   return new Promise(async (resolve) => {
-    const response = await fetch("/categories");
+    const response = await fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/categories`
+    );
     const data = await response.json();
     resolve({ data });
   });
@@ -98,7 +102,7 @@ export function fetchCategories() {
 
 export function fetchBrands() {
   return new Promise(async (resolve) => {
-    const response = await fetch("/brands");
+    const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/brands`);
     const data = await response.json();
     resolve({ data });
   });

@@ -427,7 +427,7 @@ function ProductGrid({ products, status }) {
               <div className="group relative border-solid border-2 p-2 border-gray-200">
                 <div className="min-h-60 aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-60">
                   <img
-                    src={`http://localhost:8080/products/${product.id}/thumbnail`}
+                    src={`${process.env.REACT_APP_BACKEND_URL}/products/${product.id}/thumbnail`}
                     alt={product.title}
                     className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                   />

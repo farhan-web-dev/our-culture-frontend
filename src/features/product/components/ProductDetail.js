@@ -110,7 +110,7 @@ export default function ProductDetail() {
           <div className="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8">
             <div className="aspect-h-4 aspect-w-3 hidden overflow-hidden rounded-lg lg:block">
               <img
-                src={`http://localhost:8080/products/${product.id}/images/${product.images[0]._id}`}
+                src={`${process.env.REACT_APP_BACKEND_URL}/products/${product.id}/images/${product.images[0]._id}`}
                 alt={product.title}
                 className="h-full w-full object-cover object-center"
               />
@@ -118,14 +118,14 @@ export default function ProductDetail() {
             <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
               <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
                 <img
-                  src={`http://localhost:8080/products/${product.id}/images/${product.images[1]._id}`}
+                  src={`${process.env.REACT_APP_BACKEND_URL}/products/${product.id}/images/${product.images[1]._id}`}
                   alt={product.title}
                   className="h-full w-full object-cover object-center"
                 />
               </div>
               <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
                 <img
-                  src={`http://localhost:8080/products/${product.id}/images/${product.images[2]._id}`}
+                  src={`${process.env.REACT_APP_BACKEND_URL}/products/${product.id}/images/${product.images[2]._id}`}
                   alt={product.title}
                   className="h-full w-full object-cover object-center"
                 />
@@ -133,7 +133,7 @@ export default function ProductDetail() {
             </div>
             <div className="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg">
               <img
-                src={`http://localhost:8080/products/${product.id}/images/${product.images[2]._id}`}
+                src={`${process.env.REACT_APP_BACKEND_URL}/products/${product.id}/images/${product.images[2]._id}`}
                 alt={product.title}
                 className="h-full w-full object-cover object-center"
               />

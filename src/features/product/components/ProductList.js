@@ -57,11 +57,11 @@ export default function ProductList() {
   const totalItems = useSelector(selectTotalItems);
   const status = useSelector(selectProductListStatus);
   const filters = [
-    {
-      id: "category",
-      name: "Category",
-      options: categories,
-    },
+    // {
+    //   id: "category",
+    //   name: "Category",
+    //   options: categories,
+    // },
     // {
     //   id: "brand",
     //   name: "Brands",

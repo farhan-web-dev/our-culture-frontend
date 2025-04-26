@@ -1,6 +1,11 @@
 export function fetchLoggedInUserOrders() {
   return new Promise(async (resolve) => {
-    const response = await fetch("/orders/own/");
+    const response = await fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/orders/own/`,
+      {
+        credentials: "include", // Make sure cookies are included
+      }
+    );
     const data = await response.json();
     resolve({ data });
   });
@@ -33,6 +38,7 @@ export function updateUser(update) {
         method: "PATCH",
         body: JSON.stringify(update),
         headers: { "content-type": "application/json" },
+        credentials: "include", // Include cookies for authentication
       }
     );
     const data = await response.json();

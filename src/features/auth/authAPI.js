@@ -22,7 +22,7 @@ export function loginUser(loginInfo) {
           method: "POST",
           body: JSON.stringify(loginInfo),
           headers: { "content-type": "application/json" },
-          // credentials: "include",
+          credentials: "include",
         }
       );
       if (response.ok) {

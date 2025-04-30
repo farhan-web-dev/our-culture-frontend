@@ -6,7 +6,9 @@ import Footer from "../features/common/Footer";
 function Home() {
   return (
     <div>
-      <NavBar>{/* <ProductList></ProductList> */}</NavBar>
+      <NavBar>
+        <ProductList></ProductList>
+      </NavBar>
       <Footer></Footer>
     </div>
   );

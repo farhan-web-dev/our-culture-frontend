@@ -12,7 +12,7 @@ export async function fetchLoggedInUser() {
   const response = await fetch(
     `${process.env.REACT_APP_BACKEND_URL}/users/own`,
     {
-      // credentials: "include", // Make sure cookies are included
+      credentials: "include", // Make sure cookies are included
     }
   );
 

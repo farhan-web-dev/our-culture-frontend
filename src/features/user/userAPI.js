@@ -9,9 +9,12 @@ export function fetchLoggedInUserOrders() {
 }
 
 export async function fetchLoggedInUser() {
-  const response = await fetch("/users/own", {
-    credentials: "include", // Make sure cookies are included
-  });
+  const response = await fetch(
+    `${process.env.REACT_APP_BACKEND_URL}/users/own`,
+    {
+      credentials: "include", // Make sure cookies are included
+    }
+  );
 
   // Check if the response is not okay (e.g. 401 Unauthorized)
   if (!response.ok) {

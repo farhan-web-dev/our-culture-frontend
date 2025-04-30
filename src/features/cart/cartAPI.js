@@ -13,7 +13,7 @@ export function addToCart(item) {
 
 export async function fetchItemsByUserId() {
   const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/cart`, {
-    credentials: "include",
+    // credentials: "include",
   });
 
   if (!response.ok) {
